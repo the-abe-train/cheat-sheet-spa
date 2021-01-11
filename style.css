@@ -1,0 +1,96 @@
+ /* CSS Reset */
+
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
+
+ /* The sidebar menu */
+
+ .sidenav {
+     height: 100%;
+     /* Full-height: remove this if you want "auto" height */
+     width: 160px;
+     /* Set the width of the sidebar */
+     position: fixed;
+     /* Fixed Sidebar (stay in place on scroll) */
+     z-index: 1;
+     /* Stay on top */
+     top: 0;
+     /* Stay at the top */
+     left: 0;
+     background-color: #808080;
+     overflow-x: hidden;
+     /* Disable horizontal scroll */
+     padding-top: 20px;
+ }
+
+ .vertical-menu {
+     width: 200px;
+     height: 150px;
+     overflow-y: auto;
+ }
+
+ .vertical-menu a {
+     background-color: #eee;
+     /* Grey background color */
+     color: black;
+     /* Black text color */
+     display: block;
+     /* Make the links appear below each other */
+     padding: 12px;
+     /* Add some padding */
+     text-decoration: none;
+     /* Remove underline from links */
+ }
+
+ .vertical-menu a:hover {
+     background-color: #ccc;
+     /* Dark grey background on mouse-over */
+ }
+
+ .vertical-menu a.active {
+     background-color: #4CAF50;
+     /* Add a green color to the "active/current" link */
+     color: white;
+ }
+
+ /* When you mouse over the navigation links, change their color */
+
+ .sidenav a:hover {
+     color: #f1f1f1;
+ }
+
+ /* Style page content */
+
+ .main {
+     margin-left: 160px;
+     /* Same as the width of the sidebar (- 10px) */
+ }
+
+ /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
+ @media screen and (max-height: 450px) {
+     .sidenav {
+         padding-top: 15px;
+     }
+     .sidenav a {
+         font-size: 18px;
+     }
+ }
+
+#admin {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#view-controls {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
