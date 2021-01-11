@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-10T22:26:10.042Z" agent="5.0 (X11)" etag="dYbbSpE16aanZJpWMphx" version="14.1.9" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-01-11T04:00:32.194Z" agent="5.0 (X11)" etag="YHRn5o3817npjid7bsPL" version="14.1.9" type="github" pages="3">
   <diagram id="2yFx_mqtz67Pj3CxTtEm" name="Whiteboard">
     <mxGraphModel dx="953" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -17,7 +17,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Ml44lX84ljDbCF8pkIIf" name="Mockup">
-    <mxGraphModel dx="2187" dy="1875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1971" dy="1789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -153,81 +153,87 @@
         <mxCell id="RkbMY6eToga76T_WhzvT-89" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/very-basic-android-l-lollipop-icon-pack/24/cursor-128.png;strokeWidth=1;fillColor=#474747;fontColor=#000000;align=center;" vertex="1" parent="WI4F5f1zV7nUWWtO1QKk-4">
           <mxGeometry x="730" y="216" width="28" height="28" as="geometry" />
         </mxCell>
+        <mxCell id="RkbMY6eToga76T_WhzvT-85" value="Ctrl + click and holding in the  canvas (on no element) drags the canvas leaving the elements in place relative to it." style="text;whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="WI4F5f1zV7nUWWtO1QKk-4">
+          <mxGeometry x="470" y="608" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RkbMY6eToga76T_WhzvT-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="WI4F5f1zV7nUWWtO1QKk-4" source="RkbMY6eToga76T_WhzvT-85" target="RkbMY6eToga76T_WhzvT-86">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-6" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-110" y="900" width="350" height="310" as="geometry" />
+          <mxGeometry x="-100" y="820" width="350" height="310" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-7" value="New variable pop-up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="10" y="870" width="130" height="20" as="geometry" />
+          <mxGeometry x="20" y="790" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-8" value="Variable name" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
-          <mxGeometry x="-90" y="915" width="260" height="40" as="geometry" />
+          <mxGeometry x="-80" y="835" width="260" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-9" value="Volume" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" parent="1" vertex="1">
           <mxGeometry width="140" height="30" relative="1" as="geometry">
-            <mxPoint x="-90" y="955" as="offset" />
+            <mxPoint x="-80" y="875" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-10" value="Description" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
           <mxGeometry width="260" height="40" relative="1" as="geometry">
-            <mxPoint x="-90" y="995" as="offset" />
+            <mxPoint x="-80" y="915" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-11" value="The amount of space a substance takes up." style="shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;" parent="1" vertex="1">
           <mxGeometry width="300" height="100" relative="1" as="geometry">
-            <mxPoint x="-85" y="1040" as="offset" />
+            <mxPoint x="-75" y="960" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-14" value="V" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" parent="1" vertex="1">
           <mxGeometry width="90" height="30" relative="1" as="geometry">
-            <mxPoint x="90" y="955" as="offset" />
+            <mxPoint x="100" y="875" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-15" value="Symbol" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
-          <mxGeometry x="90" y="915" width="80" height="40" as="geometry" />
+          <mxGeometry x="100" y="835" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-16" value="Create variable!" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="5" y="1170" width="120" height="30" as="geometry" />
+          <mxGeometry x="15" y="1090" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-20" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="260" y="890" width="350" height="380" as="geometry" />
+          <mxGeometry x="270" y="810" width="350" height="380" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-21" value="New equation pop-up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="380" y="860" width="130" height="20" as="geometry" />
+          <mxGeometry x="390" y="780" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-22" value="Equation name" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
-          <mxGeometry x="280" y="905" width="140" height="40" as="geometry" />
+          <mxGeometry x="290" y="825" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-23" value="Ideal Gas Law" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" parent="1" vertex="1">
           <mxGeometry width="240" height="30" relative="1" as="geometry">
-            <mxPoint x="280" y="945" as="offset" />
+            <mxPoint x="290" y="865" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-24" value="Description" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
           <mxGeometry width="260" height="40" relative="1" as="geometry">
-            <mxPoint x="280" y="1070" as="offset" />
+            <mxPoint x="290" y="990" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-25" value="Equation to estimate the state of a gas in ideal considitons" style="shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry width="300" height="100" relative="1" as="geometry">
-            <mxPoint x="285" y="1110" as="offset" />
+            <mxPoint x="295" y="1030" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-26" value="PV = nRT" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" parent="1" vertex="1">
           <mxGeometry width="240" height="30" relative="1" as="geometry">
-            <mxPoint x="280" y="1030" as="offset" />
+            <mxPoint x="290" y="950" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-27" value="Type out equation with symbols" style="fillColor=none;strokeColor=none;align=left;fontSize=14;fontColor=#212529;" parent="1" vertex="1">
-          <mxGeometry x="280" y="990" width="80" height="40" as="geometry" />
+          <mxGeometry x="290" y="910" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-28" value="Create equation!" style="rounded=1;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
-          <mxGeometry x="375" y="1230" width="120" height="30" as="geometry" />
+          <mxGeometry x="385" y="1150" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontColor=#000000;" edge="1" parent="1" source="vdhxvwEADm5-jfVzZxHt-47" target="vdhxvwEADm5-jfVzZxHt-40">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="vdhxvwEADm5-jfVzZxHt-47" value="&lt;div&gt;User should be able to zoom in and out with buttons and with  mouse.&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="980" y="600" width="160" height="60" as="geometry" />
+        <mxCell id="vdhxvwEADm5-jfVzZxHt-47" value="&lt;div&gt;User should be able to zoom in and out with buttons and with scroll wheel.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;Figure out how to override Ctrl + scroll in V2&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="950" y="560" width="190" height="100" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;fontColor=#000000;" edge="1" parent="1" source="vdhxvwEADm5-jfVzZxHt-60" target="RkbMY6eToga76T_WhzvT-1">
           <mxGeometry relative="1" as="geometry" />
@@ -245,7 +251,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-3" value="&lt;div&gt;Adding an equation or variable opens the corresponding pop-up window.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;When a new element is created, it appears in the middle of the canvas&#39;s current orientation.&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="-260" y="250" width="130" height="90" as="geometry" />
+          <mxGeometry x="-310" y="230" width="180" height="110" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-4" value="&lt;p&gt;Login&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry x="950" y="106" width="40" height="20" as="geometry" />
@@ -259,32 +265,32 @@
         <mxCell id="RkbMY6eToga76T_WhzvT-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-6" target="vdhxvwEADm5-jfVzZxHt-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="RkbMY6eToga76T_WhzvT-6" value="&lt;div&gt;Save to PDF opens print dialogue window to print contents of canvas.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;This doesn&#39;t need to be perfect on V1.&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="RkbMY6eToga76T_WhzvT-6" value="&lt;div&gt;Save to PDF opens print dialogue window to print contents of canvas.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;Maybe use Puppeteer? This doesn&#39;t need to be perfect on V1.&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="930" y="161" width="160" height="70" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-10" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="640" y="890" width="350" height="310" as="geometry" />
+          <mxGeometry x="650" y="810" width="350" height="310" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-11" value="Contact us form" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="760" y="860" width="130" height="20" as="geometry" />
+          <mxGeometry x="770" y="780" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-13" value="Email address we can contact you at" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" vertex="1" parent="1">
           <mxGeometry width="260" height="30" relative="1" as="geometry">
-            <mxPoint x="660" y="940" as="offset" />
+            <mxPoint x="670" y="860" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-15" value="Enter message here." style="shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="1">
           <mxGeometry width="300" height="100" relative="1" as="geometry">
-            <mxPoint x="665" y="1030" as="offset" />
+            <mxPoint x="675" y="950" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-16" value="Subject" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=none;strokeColor=#999999;align=left;spacing=15;fontSize=14;fontColor=#6C767D;" vertex="1" parent="1">
           <mxGeometry width="250" height="30" relative="1" as="geometry">
-            <mxPoint x="665" y="985" as="offset" />
+            <mxPoint x="675" y="905" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-18" value="Send message" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="755" y="1160" width="120" height="30" as="geometry" />
+          <mxGeometry x="765" y="1080" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-25" value="&lt;div&gt;&lt;font style=&quot;font-size: 19px&quot;&gt;V&lt;/font&gt;&lt;/div&gt;&lt;div&gt;Volume&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="-490" y="166" width="120" height="60" as="geometry" />
@@ -310,25 +316,19 @@
         <mxCell id="RkbMY6eToga76T_WhzvT-29" value="Right-click an element to open &quot;edit&quot; menu" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="-545" y="131" width="120" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="RkbMY6eToga76T_WhzvT-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-31" target="RkbMY6eToga76T_WhzvT-42">
+        <mxCell id="RkbMY6eToga76T_WhzvT-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-31" target="RkbMY6eToga76T_WhzvT-42">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-31" value="&lt;div&gt;Resizes the canvas so all elements are on the screen&lt;/div&gt;&lt;div&gt;&lt;i&gt;Need more detail on how this should work&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="850" y="760" width="120" height="60" as="geometry" />
+          <mxGeometry x="1030" y="710" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-40" value="&lt;div&gt;&quot;Edit&quot; re-opens the variable name pop-up&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;Delete&quot; deletes all link objects associated&lt;/div&gt;&lt;div&gt;with the variablesand then deletes the variable&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&quot;Remove all links&quot; just deletes the links.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;In future version, add &quot;duplicate&quot;&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
           <mxGeometry x="-650" y="235" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="RkbMY6eToga76T_WhzvT-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-85" target="RkbMY6eToga76T_WhzvT-86">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="RkbMY6eToga76T_WhzvT-85" value="Holding on scroll wheel drags the canvas around, leaving the elements in place relative to it." style="text;whiteSpace=wrap;html=1;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="561" y="770" width="170" height="50" as="geometry" />
-        </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-90" target="RkbMY6eToga76T_WhzvT-88">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="RkbMY6eToga76T_WhzvT-90" value="&lt;div&gt;Dragging the mouse along the canvas creates a group selector. When the mouse is released, all elements adjascent to the rectangular selector will be highlighted and concatenated to a group.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Elements in a group are moved and resized simulataneously.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;If the elements were different sizes before resizing, they become the same size when resizing starts.&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="RkbMY6eToga76T_WhzvT-90" value="&lt;div&gt;Dragging the mouse along the canvas creates a group selector. When the mouse is released, all elements adjascent to the rectangular selector will be highlighted and concatenated to a group.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Elements in a group are moved and resized simulataneously.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;If the elements were different sizes before resizing, they become the same size when resizing starts.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;Having trouble with the selection rectangle, because we using mouse on the stage to drag the stage. Need to get stage dragging with scroll wheel before doing this.&lt;/i&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1020" y="310" width="230" height="180" as="geometry" />
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.086;entryY=0.101;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;" edge="1" parent="1" source="RkbMY6eToga76T_WhzvT-97" target="WI4F5f1zV7nUWWtO1QKk-4">
