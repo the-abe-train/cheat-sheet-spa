@@ -25,7 +25,7 @@ const tr = new Konva.Transformer({
 tr.nodes([]); // need a default in transformer, so empty array
 layer.add(tr);
 
-// Step 3: Create shapes and add to layer
+// Step 3: Create shapes
 let rect1 = new Konva.Rect({
     x: 100,
     y: 100,
@@ -50,15 +50,23 @@ let rect2 = new Konva.Rect({
     draggable: true
 
 })
-layer.add(rect1);
-layer.add(rect2);
+
+// Create new group and add layers to group
+const group = new Konva.Group({
+    x: 0,
+    y: 0,
+    width: 100,
+    height: 100,
+    visible: true
+});
+group.add(rect1, rect2);
+layer.add(group);
 
 // Step 4: Draw layer
 layer.draw();
 
 // Dynamic resize canvas when resizing window
 function fitStageIntoParentContainer() {
-    console.log("running resizer function")
 
     const pageHeight = window.innerHeight;
     const pageWidth = window.innerWidth;
@@ -66,8 +74,6 @@ function fitStageIntoParentContainer() {
 
     const containerWidth = pageWidth - sidebarWidth;
     const containerHeight = pageHeight;
-
-    console.log(containerHeight)
 
     stage.width(containerWidth);
     stage.height(containerHeight);
@@ -151,4 +157,30 @@ stage.on('click tap', e => {
     }
     layer.draw();
 
+})
+
+// Recentre screen
+document.querySelector('#centre').addEventListener('click', (e) => {
+    
+    // Recentre stage
+    stage.position({
+        x: 0,
+        y: 0
+    })
+
+    // Recentre group at centre of stage
+    group.position({
+        x: stage.width() / 2,
+        y: stage.height() / 2
+    })
+
+    // Cycle through objects and add to transform
+    group.getChildren().forEach(node => {
+        node.position({
+            x: node.x() / 2,
+            y: node.y() / 2
+        })
+    })
+
+    layer.draw();
 })
