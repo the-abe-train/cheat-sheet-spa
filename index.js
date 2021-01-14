@@ -25,11 +25,32 @@ const tr = new Konva.Transformer({
 tr.nodes([]); // need a default in transformer, so empty array
 layer.add(tr);
 
+// Write helpful messages while testing!
+const text = new Konva.Text({
+    x: 10,
+    y: 10,
+    fontFamily: 'Calibri',
+    fontSize: 20,
+    text: '',
+    fill: 'black',
+});
+
+function writeMessage(message) {
+    text.text(message);
+    layer.draw();
+}
+function printCoords() {
+    const { x, y } = this.position();
+    writeMessage(`${this.name()} x: ${x}, y: ${y}`);
+}
+
+
 // Step 3: Create shapes
 let rect1 = new Konva.Rect({
     x: 100,
     y: 100,
     fill: 'blue',
+    name: 'blue',
     width: 200,
     height: 100,
     stroke: 'orange',
@@ -37,32 +58,33 @@ let rect1 = new Konva.Rect({
     cornerRadius: 12,
     draggable: true
 })
+rect1.on('mouseup', printCoords);
 
 let rect2 = new Konva.Rect({
     x: 200,
     y: 200,
     fill: 'green',
+    name: 'green',
     width: 200,
     height: 100,
     stroke: 'orange',
     strokeWidth: 12,
     cornerRadius: 12,
     draggable: true
-
 })
+rect2.on('mouseup', printCoords);
 
 // Create new group and add layers to group
 const group = new Konva.Group({
     x: 0,
     y: 0,
-    width: 100,
-    height: 100,
     visible: true
 });
 group.add(rect1, rect2);
 layer.add(group);
 
 // Step 4: Draw layer
+layer.add(text);
 layer.draw();
 
 // Dynamic resize canvas when resizing window
@@ -108,6 +130,8 @@ stage.on('wheel', (e) => {
     stage.position(newPos);
     stage.batchDraw();
 });
+
+
 
 // Selection rectangle
 // var selectionRectangle = new Konva.Rect({
@@ -161,26 +185,118 @@ stage.on('click tap', e => {
 
 // Recentre screen
 document.querySelector('#centre').addEventListener('click', (e) => {
-    
-    // Recentre stage
+
+    function recentre() {
+
+        const stageCentre = {
+            x: stage.x() / 2,
+            y: stage.y() / 2
+        }
+
+        // Get midpoint of all shapes
+        const midpoints = group.getChildren().map(node => {
+            const { x, y } = node.position();
+            const { width, height } = node.size();
+            return {
+                x: x + (width / 2),
+                y: y + (height / 2)
+            }
+        })
+
+        // Get geometric centre of all shapes
+        const geoCentre = midpoints.reduce((acc, curr, idx, src) => {
+            acc.x += curr.x / src.length;
+            acc.y += curr.y / src.length;
+            return acc
+        }, { x: 0, y: 0 })
+
+        // Find centre of screen
+        const screenCentre = {
+            x: stage.width() / 2,
+            y: stage.height() / 2
+        }
+
+        // Get vector from geo centre -> screen centre
+        const vector = {
+            x: screenCentre.x - geoCentre.x,
+            y: screenCentre.y - geoCentre.y
+        }
+
+        // Move all shapes by vector
+        group.getChildren().forEach(node => node.move(vector));
+    }
+
+    function checkBounds() {
+        const bounds = group.getChildren().reduce((acc, node) => {
+            return {
+                top: Math.min(acc.top, node.y()),
+                right: Math.max(acc.right, node.x() + node.width()),
+                bottom: Math.max(acc.bottom, node.y() + node.height()),
+                left: Math.min(acc.left, node.x())
+            }
+        }, { top: 0, right: 0, bottom: 0, left: 0 })
+        const outOfBounds = [
+            bounds.top < stage.y(),
+            bounds.right > stage.x() + stage.width(),
+            bounds.bottom > stage.y() + stage.height(),
+            bounds.left < stage.x()
+        ].some(bound => bound === true)
+
+        console.log(stage.x(), stage.y(), stage.height(), stage.width());
+        console.log(bounds);
+        return outOfBounds
+    }
+
+
+    // Scale stage until shapes are within bounds
+    function zoom(scaleBy) {
+        var oldScale = stage.scaleX();
+
+        var pointer = { x: stage.width() / 2, y: stage.height() / 2 };
+
+        var mousePointTo = {
+            x: (pointer.x - stage.x()) / oldScale,
+            y: (pointer.y - stage.y()) / oldScale,
+        };
+
+        var newScale = oldScale * scaleBy;
+
+        stage.scale({ x: newScale, y: newScale });
+
+        var newPos = {
+            x: pointer.x - mousePointTo.x * newScale,
+            y: pointer.y - mousePointTo.y * newScale,
+        };
+        stage.position(newPos);
+        stage.batchDraw();
+    }
+
+    // Begin loop
+    stage.scale({
+        x: 1,
+        y: 1
+    })
     stage.position({
         x: 0,
         y: 0
     })
-
-    // Recentre group at centre of stage
     group.position({
-        x: stage.width() / 2,
-        y: stage.height() / 2
+        x: 0,
+        y: 0
     })
+    recentre();
+    let outOfBounds = checkBounds();
+    let stageX, stageY;
 
-    // Cycle through objects and add to transform
-    group.getChildren().forEach(node => {
-        node.position({
-            x: node.x() / 2,
-            y: node.y() / 2
-        })
-    })
+    while (outOfBounds) {
+    // if (outOfBounds) {
+        zoom(0.8);
+        recentre();
+        outOfBounds = checkBounds();
 
+    }
+
+
+    // Redraw layer
     layer.draw();
 })
