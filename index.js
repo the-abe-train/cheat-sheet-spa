@@ -109,21 +109,21 @@ window.addEventListener('resize', fitStageIntoParentContainer);
 const scaleBy = 1.03;
 stage.on('wheel', (e) => {
     e.evt.preventDefault();
-    var oldScale = stage.scaleX();
+    const oldScale = stage.scaleX();
 
-    var pointer = stage.getPointerPosition();
+    const pointer = stage.getPointerPosition();
 
-    var mousePointTo = {
+    const mousePointTo = {
         x: (pointer.x - stage.x()) / oldScale,
         y: (pointer.y - stage.y()) / oldScale,
     };
 
-    var newScale =
+    const newScale =
         e.evt.deltaY > 0 ? oldScale * scaleBy : oldScale / scaleBy;
 
     stage.scale({ x: newScale, y: newScale });
 
-    var newPos = {
+    const newPos = {
         x: pointer.x - mousePointTo.x * newScale,
         y: pointer.y - mousePointTo.y * newScale,
     };
@@ -134,7 +134,7 @@ stage.on('wheel', (e) => {
 
 
 // Selection rectangle
-// var selectionRectangle = new Konva.Rect({
+// const selectionRectangle = new Konva.Rect({
 //     fill: 'rgba(0,0,255,0.5)',
 // });
 // layer.add(selectionRectangle);
@@ -227,43 +227,50 @@ document.querySelector('#centre').addEventListener('click', (e) => {
     }
 
     function checkBounds() {
-        const bounds = group.getChildren().reduce((acc, node) => {
+        const scale = stage.scaleX();
+        const edges = group.getChildren().reduce((acc, node) => {
             return {
-                top: Math.min(acc.top, node.y()),
-                right: Math.max(acc.right, node.x() + node.width()),
-                bottom: Math.max(acc.bottom, node.y() + node.height()),
-                left: Math.min(acc.left, node.x())
+                top: Math.min(acc.top, (stage.y() + node.y()) * scale),
+                right: Math.max(acc.right, (stage.x() + node.x() + node.width()) * scale),
+                bottom: Math.max(acc.bottom, (stage.y() + node.y() + node.height()) * scale),
+                left: Math.min(acc.left, (stage.x() + node.x()) * scale)
             }
-        }, { top: 0, right: 0, bottom: 0, left: 0 })
+        }, {
+            top: (stage.y() + stage.height()) * scale,
+            right: (stage.x() + stage.width()) * scale,
+            bottom: (stage.y() + stage.height()) * scale,
+            left: (stage.x() + stage.width()) * scale
+        })
         const outOfBounds = [
-            bounds.top < stage.y(),
-            bounds.right > stage.x() + stage.width(),
-            bounds.bottom > stage.y() + stage.height(),
-            bounds.left < stage.x()
+            edges.top < 0,
+            edges.right > window.innerWidth,
+            edges.bottom > window.innerHeight,
+            edges.left < 0
         ].some(bound => bound === true)
 
-        console.log(stage.x(), stage.y(), stage.height(), stage.width());
-        console.log(bounds);
         return outOfBounds
     }
 
 
     // Scale stage until shapes are within bounds
     function zoom(scaleBy) {
-        var oldScale = stage.scaleX();
+        const oldScale = stage.scaleX();
 
-        var pointer = { x: stage.width() / 2, y: stage.height() / 2 };
+        const pointer = {
+            x: stage.x() + stage.width() / 2,
+            y: stage.y() + stage.height() / 2,
+        }
 
-        var mousePointTo = {
+        const mousePointTo = {
             x: (pointer.x - stage.x()) / oldScale,
             y: (pointer.y - stage.y()) / oldScale,
         };
 
-        var newScale = oldScale * scaleBy;
+        const newScale = oldScale * scaleBy;
 
         stage.scale({ x: newScale, y: newScale });
 
-        var newPos = {
+        const newPos = {
             x: pointer.x - mousePointTo.x * newScale,
             y: pointer.y - mousePointTo.y * newScale,
         };
@@ -271,31 +278,21 @@ document.querySelector('#centre').addEventListener('click', (e) => {
         stage.batchDraw();
     }
 
-    // Begin loop
-    stage.scale({
-        x: 1,
-        y: 1
-    })
-    stage.position({
-        x: 0,
-        y: 0
-    })
-    group.position({
-        x: 0,
-        y: 0
-    })
-    recentre();
-    let outOfBounds = checkBounds();
-    let stageX, stageY;
+    // Reset basic canvas positions and vectors
+    stage.scale({ x: 1, y: 1 })
+    stage.position({ x: 0, y: 0 })
+    group.position({ x: 0, y: 0 })
 
+    // Initial recentre
+    recentre();
+
+    // Zoom until all shapes within bounds
+    let outOfBounds = checkBounds();
     while (outOfBounds) {
-    // if (outOfBounds) {
-        zoom(0.8);
+        zoom(0.9);
         recentre();
         outOfBounds = checkBounds();
-
     }
-
 
     // Redraw layer
     layer.draw();
