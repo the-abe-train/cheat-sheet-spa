@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-16T22:07:38.063Z" agent="5.0 (X11)" etag="_ObVMoo4lGik39btAx1u" version="14.2.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-01-17T15:44:31.006Z" agent="5.0 (X11)" etag="jhUxvXXjnif2LwzsQJlD" version="14.2.4" type="github" pages="3">
   <diagram id="2yFx_mqtz67Pj3CxTtEm" name="Whiteboard">
-    <mxGraphModel dx="969" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="969" dy="578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="FIBju56evsz0IUwhb-XU-0" />
         <mxCell id="FIBju56evsz0IUwhb-XU-1" parent="FIBju56evsz0IUwhb-XU-0" />
@@ -17,7 +17,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Ml44lX84ljDbCF8pkIIf" name="Mockup">
-    <mxGraphModel dx="2187" dy="1875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1006" dy="1193" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -158,6 +158,18 @@
         </mxCell>
         <mxCell id="RkbMY6eToga76T_WhzvT-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontColor=#000000;" parent="WI4F5f1zV7nUWWtO1QKk-4" source="RkbMY6eToga76T_WhzvT-85" target="RkbMY6eToga76T_WhzvT-86" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4XbgAWckGhM7SXql92dD-6" value="" style="group" vertex="1" connectable="0" parent="WI4F5f1zV7nUWWtO1QKk-4">
+          <mxGeometry x="180" y="111.5" width="35" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4XbgAWckGhM7SXql92dD-1" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="4XbgAWckGhM7SXql92dD-6">
+          <mxGeometry y="2.5" width="35" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="4XbgAWckGhM7SXql92dD-5" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-128.png" vertex="1" parent="4XbgAWckGhM7SXql92dD-6">
+          <mxGeometry x="2.5" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4XbgAWckGhM7SXql92dD-7" value="X" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WI4F5f1zV7nUWWtO1QKk-4">
+          <mxGeometry x="136" y="114" width="34" height="25" as="geometry" />
         </mxCell>
         <mxCell id="vdhxvwEADm5-jfVzZxHt-6" value="" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-100" y="820" width="350" height="310" as="geometry" />
@@ -349,14 +361,17 @@
         <mxCell id="RkbMY6eToga76T_WhzvT-102" value="URL accessible anywhere, host on Netlify/Heroku/Gtihub/Vercel" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="110" y="-110" width="110" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="6VllVzWm0MmrRtab-clV-4" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" vertex="1" parent="1">
+        <mxCell id="6VllVzWm0MmrRtab-clV-4" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="210" y="810" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6VllVzWm0MmrRtab-clV-6" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" vertex="1" parent="1">
+        <mxCell id="6VllVzWm0MmrRtab-clV-6" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="580" y="810" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6VllVzWm0MmrRtab-clV-7" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" vertex="1" parent="1">
+        <mxCell id="6VllVzWm0MmrRtab-clV-7" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Wrong-128.png;imageBackground=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="960" y="810" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4XbgAWckGhM7SXql92dD-2" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-128.png" vertex="1" parent="1">
+          <mxGeometry x="210" y="210" width="20" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
