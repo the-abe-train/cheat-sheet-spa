@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>App</title>
 
     <!-- Konva -->
     <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
@@ -19,24 +19,12 @@
     <!-- Sidebar -->
     <div class="sidenav">
         <h2>Variables</h2>
-        <button id="variables-button">Add variable</button>
-        <div class="vertical-menu">
-            <a href="#" class="active">Variable 0</a>
-            <a href="#">Variable 1</a>
-            <a href="#">Variable 2</a>
-            <a href="#">Variable 3</a>
-            <a href="#">Variable 4</a>
-        </div>
+        <button class="add-element" id="variables-button" data-target="variables-popup">Add variable</button>
+        <div class="vertical-menu" id="variables-menu"></div>
         <hr>
         <h2>Equations</h2>
-        <button id="equations-button">Add equation</button>
-        <div class="vertical-menu">
-            <a href="#" class="active">Equation 0</a>
-            <a href="#">Equation 1</a>
-            <a href="#">Equation 2</a>
-            <a href="#">Equation 3</a>
-            <a href="#">Equation 4</a>
-        </div>
+        <button class="add-element" id="equations-button" data-target="equations-popup">Add equation</button>
+        <div class="vertical-menu" id="equations-menu"></div>
         <hr>
         <button>Add link</button>
     </div>
@@ -58,29 +46,37 @@
     </div>
 
     <!-- Forms -->
-    <div class="form-popup" id="variables-form">
-        <form class="form-container">
-
-            <button id="close" type="reset">x</button>
-
+    <div class="form-popup" id="variables-popup" draggable="true">
+        <form class="form-container" id="variables-form" data-type="variable">
+            <button class="close-button" type="reset">x</button>
             <div class="form-row">
                 <div class="form-col">
-                    <label for="variable"><b>Variable name</b></label>
-                    <input type="text" placeholder="Volume" name="variable" required>
+                    <label for="varname"><b>Variable name</b></label>
+                    <input type="text" id="varname" placeholder="Volume" required>
                 </div>
                 <div class="form-col">
-                    <label for="symbol"><b>Symbol</b></label>
-                    <input type="text" placeholder="V" name="symbol" required>
+                    <label for="varsymbol"><b>Symbol</b></label>
+                    <input type="text" id="varsymbol" placeholder="V" required>
                 </div>
             </div>
-
             <div class="form-col">
-                <label for="description"><b>Description</b></label>
-                <input type="text" placeholder="The amount of space a substance takes up" name="description">
+                <label for="vardesc"><b>Description</b></label>
+                <input type="text" id="vardesc" placeholder="The amount of space a substance takes up">
             </div>
+            <button type="submit" class="btn">Create Variable</button>
+        </form>
+    </div>
 
-
-            <button type="submit" class="btn">Login</button>
+    <div class="form-popup" id="equations-popup" draggable="true">
+        <form class="form-container" id="equations-form" data-type="equation">
+            <button class="close-button" type="reset">x</button>
+            <label for="eqnname"><b>Equation name</b></label>
+            <input type="text" id="eqnname" placeholder="Ideal Gas Law" required>
+            <label for="eqnsymbol"><b>Type out equation with symbols</b></label>
+            <input type="text" id="eqnsymbol" placeholder="PV=nRT" required>
+            <label for="vardesc"><b>Description</b></label>
+            <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons">
+            <button type="submit" class="btn">Create Variable</button>
         </form>
     </div>
 

@@ -186,7 +186,7 @@
 
  /* Cancel button */
 
- #close {
+ .close-button {
      position: absolute;
      background: white;
      color: black;
