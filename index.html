@@ -46,36 +46,36 @@
     </div>
 
     <!-- Forms -->
-    <div class="form-popup" id="variables-popup" draggable="true">
+    <div class="form-popup" id="variables-popup">
         <form class="form-container" id="variables-form" data-type="variable">
             <button class="close-button" type="reset">x</button>
             <div class="form-row">
                 <div class="form-col">
                     <label for="varname"><b>Variable name</b></label>
-                    <input type="text" id="varname" placeholder="Volume" required>
+                    <input type="text" id="varname" placeholder="Volume" name="name" required>
                 </div>
                 <div class="form-col">
                     <label for="varsymbol"><b>Symbol</b></label>
-                    <input type="text" id="varsymbol" placeholder="V" required>
+                    <input type="text" id="varsymbol" placeholder="V" name="symbol" required>
                 </div>
             </div>
             <div class="form-col">
                 <label for="vardesc"><b>Description</b></label>
-                <input type="text" id="vardesc" placeholder="The amount of space a substance takes up">
+                <input type="text" id="vardesc" placeholder="The amount of space a substance takes up" name="desc">
             </div>
             <button type="submit" class="btn">Create Variable</button>
         </form>
     </div>
 
-    <div class="form-popup" id="equations-popup" draggable="true">
+    <div class="form-popup" id="equations-popup">
         <form class="form-container" id="equations-form" data-type="equation">
             <button class="close-button" type="reset">x</button>
             <label for="eqnname"><b>Equation name</b></label>
-            <input type="text" id="eqnname" placeholder="Ideal Gas Law" required>
+            <input type="text" id="eqnname" placeholder="Ideal Gas Law" name="name" required>
             <label for="eqnsymbol"><b>Type out equation with symbols</b></label>
-            <input type="text" id="eqnsymbol" placeholder="PV=nRT" required>
+            <input type="text" id="eqnsymbol" placeholder="PV=nRT" name="symbol" required>
             <label for="vardesc"><b>Description</b></label>
-            <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons">
+            <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons" name="desc"/>
             <button type="submit" class="btn">Create Variable</button>
         </form>
     </div>
@@ -84,6 +84,7 @@
     <script src="index.js"></script>
     <script src="zoom.js"></script>
     <script src="forms.js"></script>
+    <script src="testing.js"></script>
 
 </body>
 
