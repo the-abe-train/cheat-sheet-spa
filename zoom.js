@@ -17,7 +17,7 @@ fitStageIntoParentContainer()
 window.addEventListener('resize', fitStageIntoParentContainer);
 
 // Zoom function
-function zoom(direction, point, scaleBy) {
+function zoom(direction, point, scaleBy = 1.2) {
     const oldScale = stage.scaleX();
 
     const pointVector = {
@@ -25,7 +25,7 @@ function zoom(direction, point, scaleBy) {
         y: (point.y - stage.y()) / oldScale,
     };
 
-    const newScale = direction === 'out' ? oldScale * scaleBy : oldScale / scaleBy;
+    const newScale = direction === 'in' ? oldScale * scaleBy : oldScale / scaleBy;
 
     stage.scale({ x: newScale, y: newScale });
 
@@ -49,8 +49,8 @@ stage.on('wheel', (e) => {
 function stageCentre() {
     // Get the relative centre of the stage
     return {
-        x: stage.x() + stage.width() / 2,
-        y: stage.y() + stage.height() / 2,
+        x: stage.width() / 2,
+        y: stage.height() / 2,
     }
 }
 
@@ -60,7 +60,7 @@ document.querySelector('#centre').addEventListener('click', (e) => {
     function recentre() {
 
         // Get midpoint of all shapes
-        const midpoints = group.getChildren().map(node => {
+        const midpoints = allNodes.getChildren().map(node => {
             const { x, y } = node.position();
             const { width, height } = node.size();
             return {
@@ -69,7 +69,8 @@ document.querySelector('#centre').addEventListener('click', (e) => {
             }
         })
 
-        // Get geometric centre of all shapes
+        // Get centre of mass of all shapes
+        // Geometric median might be better here, but hard to implement
         const geoCentre = midpoints.reduce((acc, curr, idx, src) => {
             acc.x += curr.x / src.length;
             acc.y += curr.y / src.length;
@@ -77,11 +78,7 @@ document.querySelector('#centre').addEventListener('click', (e) => {
         }, { x: 0, y: 0 })
 
         // Find absolute centre of canvas
-        const leftBound = document.querySelector(".sidenav").clientWidth;
-        const centre = {
-            x: (window.innerWidth - leftBound) / 2,
-            y: window.innerHeight / 2
-        };
+        const centre = stageCentre();
 
         // Get vector from geo centre -> screen centre
         const vector = {
@@ -90,51 +87,62 @@ document.querySelector('#centre').addEventListener('click', (e) => {
         }
 
         // Move all shapes by vector
-        group.getChildren().forEach(node => node.move(vector));
+        allNodes.getChildren().forEach(node => node.move(vector));
     }
 
     function checkBounds() {
         const scale = stage.scaleX();
-        const leftBound = document.querySelector(".sidenav").clientWidth;
+
+        // Bounds of the visible stage
+        const bounds = document.querySelector('#konva-holder').getBoundingClientRect();
 
         // Get absolute bounds of all nodes ()
-        const edges = group.getChildren().reduce((acc, node) => {
+        const edges = allNodes.getChildren().reduce((acc, node) => {
             return {
-                top: Math.min(acc.top, stage.y() + scale * node.y()),
-                right: Math.max(acc.right, leftBound + stage.x() + scale * (node.x() + node.width())),
-                bottom: Math.max(acc.bottom, stage.y() + scale * (node.y() + node.height())),
-                left: Math.min(acc.left, leftBound + stage.x() + scale * node.x())
+                top: Math.min(acc.top, bounds.top + stage.y() + scale * node.y()),
+                right: Math.max(acc.right, bounds.left + stage.x() + scale * (node.x() + node.width())),
+                bottom: Math.max(acc.bottom, bounds.top + scale * (node.y() + node.height())),
+                left: Math.min(acc.left, bounds.left + stage.x() + scale * node.x())
             }
         }, {  // Start with middle of stage
-            top: this.stageCentre()['y'],
-            right: this.stageCentre()['x'],
-            bottom: this.stageCentre()['y'],
-            left: this.stageCentre()['x']
+            top: stageCentre().y,
+            right: stageCentre().x,
+            bottom: stageCentre().y,
+            left: stageCentre().x
         })
-        const outOfBounds = [  // Bounds of the visible stage
-            edges.top < 0,
-            edges.right > window.innerWidth,
-            edges.bottom > window.innerHeight,
-            edges.left < leftBound
+
+        const outOfBounds = [
+            edges.top < bounds.top,
+            edges.right > bounds.right,
+            edges.bottom > bounds.bottom,
+            edges.left < bounds.left
         ].some(bound => bound === true)
 
         // console.log(JSON.stringify(edges));
-        
+
         return outOfBounds
+    }
+
+    function resize() {
+        allNodes.getChildren().forEach(node => {
+            node.size({ width: 200, height: 100 })
+            node.scale({ x: 1, y: 1 });
+        })
     }
 
     // Reset basic canvas positions and vectors
     stage.scale({ x: 1, y: 1 })
     stage.position({ x: 0, y: 0 })
-    group.position({ x: 0, y: 0 })
+    allNodes.position({ x: 0, y: 0 })
 
-    // Initial recentre
+    // Initial resize and recentre
+    resize();
     recentre();
 
     // Zoom until all shapes within bounds
     let outOfBounds = checkBounds();
     while (outOfBounds) {
-        zoom('out', stageCentre(), 0.9);
+        zoom('out', stageCentre());
         recentre();
         outOfBounds = checkBounds();
     }
@@ -145,8 +153,8 @@ document.querySelector('#centre').addEventListener('click', (e) => {
 
 // Zoom buttons
 document.querySelector('#zoomin').addEventListener('click', e => {
-    zoom('in', stageCentre(), 1.01);
+    zoom('in', stageCentre());
 })
 document.querySelector('#zoomout').addEventListener('click', e => {
-    zoom('out', stageCentre(), 1.01);
+    zoom('out', stageCentre());
 })
