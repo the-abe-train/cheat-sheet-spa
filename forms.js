@@ -2,7 +2,10 @@
 document.querySelectorAll('.add-element').forEach(btn => {
     btn.addEventListener('click', function (e) {
         const popupId = this.dataset.target;
-        document.querySelector('#' + popupId).style.display = 'block';
+        const popup = document.querySelector('#' + popupId)
+        popup.style.display = 'block';
+        popup.querySelector('input').focus();
+
     })
 })
 
@@ -113,11 +116,16 @@ function createElement(el) {
         transformsEnabled: 'none'  // need to fix these transforms
     })
 
+    // Add linking event to right clicking the node
+    // nodeGroup.addEventListener('contextmenu', function(ev) {
+    //     ev.preventDefault();
+    //     document.addEventListener('mousedown', e => {
+    //         console.log('dragging')
+    //     })
+    // });
+
     nodeGroup.add(rect, text);
     allNodes.add(nodeGroup);
-    // layer.add(nodeGroup);
-
-
     layer.draw();
 
 }
