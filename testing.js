@@ -32,6 +32,16 @@ const group1 = new Konva.Group({
     ...size,
 })
 
+// group1.on('click', function(e) {
+//     console.log(`Clicked ${this.getAttr('name')}`)
+// })
+// document
+
+// group1.on('contextmenu',function(e) {
+//     console.log(e);
+//     console.log(`Clicked ${this.getAttr('name')}`);
+// })
+
 const rect1 = new Konva.Rect({
     x: 0,
     y: 0,
