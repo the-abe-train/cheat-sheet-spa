@@ -80,3 +80,14 @@ stage.on('click tap', e => {
     layer.draw();
 
 })
+
+// Delete selected nodes
+document.addEventListener('keydown', e => {
+    if (e.key === "Delete") {
+        tr.nodes().forEach(function (node) {
+            node.destroy();
+        })
+        tr.nodes([]);
+        layer.draw();
+    }
+})
