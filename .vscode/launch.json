@@ -14,19 +14,29 @@
                 {
                     "url": "file://",
                     "path": ""
-                },
-                {
-                    "url": "file://",
-                    "path": ""
                 }
             ]
         },
         {
-            "type": "pwa-chrome",
+            "name": "Launch Chromium against localhost",
+            "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
+            "url": "http://localhost:9000/",
+            "sourceMaps": false,
+            "webRoot": "${workspaceRoot}/index.html",
+            "runtimeExecutable": "/snap/bin/chromium",
+            "runtimeArgs": [
+                "--remote-debugging-port=9222",
+                "--user-data-dir=~/Projects/Secret/.chromium-cache/"
+            ]
+        },
+        {
+            "name": "Attach to Chromium",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "sourceMaps": false,
+            "webRoot": "${workspaceRoot}/index.html"
         }
     ]
 }
