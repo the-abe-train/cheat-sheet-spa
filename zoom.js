@@ -147,6 +147,12 @@ document.querySelector('#centre').addEventListener('click', (e) => {
         outOfBounds = checkBounds();
     }
 
+    // Redraw arrows
+    const arrows = layer.getChildren(node => node.getClassName() === "Arrow")
+    for (let arrow of arrows) {
+        arrow.update();
+    }
+
     // Redraw layer
     layer.draw();
 })
