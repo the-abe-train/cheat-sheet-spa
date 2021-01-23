@@ -73,6 +73,10 @@ stage.on('click tap', e => {
         const nodes = tr.nodes().concat([groupTarget]);
         tr.nodes(nodes);
     }
+
+    // Bring to front
+    tr.zIndex(1);
+
     layer.draw();
 
 })
