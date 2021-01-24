@@ -12,21 +12,8 @@
 
  /* Defaults */
 
- a {
-     text-decoration: none;
-     color: pink;
- }
-
- i {
-    cursor: pointer;
- }
-
-
-
  h2 {
      font-size: 2em;
-     margin-top: 0.3em;
-     margin-bottom: 0.2em;
  }
 
  /* The sidebar menu */
@@ -34,7 +21,7 @@
  .sidenav {
      height: 100%;
      /* Full-height: remove this if you want "auto" height */
-     width: 170px;
+     width: 175px;
      /* Set the width of the sidebar */
      position: fixed;
      /* Fixed Sidebar (stay in place on scroll) */
@@ -46,39 +33,46 @@
      background-color: #dedede;
      overflow-x: hidden;
      /* Disable horizontal scroll */
+     padding-top: 20px;
      display: flex;
      flex-direction: column;
-     align-items: center;
-     text-align: center;
-     justify-content: space-between;
  }
 
  .vertical-menu {
-     width: 7.5rem;
-     height: 10em;
+     width: 200px;
+     height: 150px;
      overflow-y: auto;
-     border: 1px solid;
-     display: flex;
-     flex-direction: column;
  }
 
- .vertical-menu p {
-     margin: 0;
-     padding-top: 0.25em;
-     padding-bottom: 0.25em;
-     display: inline-block;
+ .vertical-menu a {
+     background-color: #eee;
+     /* Grey background color */
+     color: black;
+     /* Black text color */
+     display: block;
+     /* Make the links appear below each other */
+     padding: 12px;
+     /* Add some padding */
      text-decoration: none;
-     cursor: pointer;
+     /* Remove underline from links */
+     width: 0.9em;
  }
 
- .vertical-menu p.active {
-     font-weight: bold;
-     color: #fff;
-     background-color: #777;
+ .vertical-menu a:hover {
+     background-color: #ccc;
+     /* Dark grey background on mouse-over */
  }
 
- #links-button {
-     margin-bottom: 0.5em;
+ .vertical-menu a.active {
+     background-color: #4CAF50;
+     /* Add a green color to the "active/current" link */
+     color: white;
+ }
+
+ /* When you mouse over the navigation links, change their color */
+
+ .sidenav a:hover {
+     color: #f1f1f1;
  }
 
  /* Style page content */
@@ -86,6 +80,17 @@
  .main {
      margin-left: 160px;
      /* Same as the width of the sidebar (- 10px) */
+ }
+
+ /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
+ @media screen and (max-height: 450px) {
+     .sidenav {
+         padding-top: 15px;
+     }
+     .sidenav a {
+         font-size: 18px;
+     }
  }
 
  #admin {
@@ -110,14 +115,8 @@
      top: 50%;
      left: 50%;
      transform: translate(-50%, -50%);
+     border: 3px solid #f1f1f1;
      z-index: 9;
-     background: white;
- }
-
- /* Remove card hover effect */
-
- .card:hover {
-     transform: 0;
  }
 
  /* Add styles to the form container */
@@ -148,6 +147,32 @@
      margin: 5px 0 22px 0;
  }
 
+ /* When the inputs get focus, do something */
+
+ .form-container input[type=text]:focus {
+     background-color: #ddd;
+     outline: none;
+ }
+
+ /* Set a style for the submit/login button */
+
+ .form-container .btn {
+     background-color: #4CAF50;
+     color: white;
+     padding: 16px 20px;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+     margin-bottom: 10px;
+     opacity: 0.8;
+ }
+
+ /* Add some hover effects to buttons */
+
+ .form-container .btn:hover, .open-button:hover {
+     opacity: 1;
+ }
+
  /* Cancel button */
 
  .close-button {
@@ -161,4 +186,5 @@
      display: flex;
      align-items: center;
      justify-content: center;
+
  }

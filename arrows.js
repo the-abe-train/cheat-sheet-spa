@@ -12,6 +12,7 @@ function makeLink() {
             nodeGroup.removeEventListener('click tap', makeLink)
         })
         clicks = 0;
+        document.querySelector('#links-button').classList.remove('disabled');
 
         // Draw arrow
         endNode = this;
@@ -19,7 +20,10 @@ function makeLink() {
     }
 }
 
-document.querySelector('#links-button').addEventListener('click', e => {
+document.querySelector('#links-button').addEventListener('click', function(e) {
+    this.classList.add('disabled');
+    tr.nodes([]);
+    layer.draw();
     allNodes.children.forEach(nodeGroup => {
         nodeGroup.addEventListener('click tap', makeLink)
     })
@@ -125,9 +129,10 @@ function drawLink(startNode, endNode) {
         strokeWidth: 4,
         start: startNode,
         end: endNode,
+        zIndex: 0
     });
     arrow.update = function() {this.setAttrs(linkPoints(startNode, endNode))}
-    layer.add(arrow);
+    allArrows.add(arrow);
     layer.draw();
 
     // Adjust arrow upon moving or scaling either node

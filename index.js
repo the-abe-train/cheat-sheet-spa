@@ -25,7 +25,15 @@ const tr = new Konva.Transformer({
 tr.nodes([]); // need a default in transformer, so empty array
 layer.add(tr);
 
-// Create new group and add layers to group
+// Create new group for future arrows
+const allArrows = new Konva.Group({
+    x: 0,
+    y: 0,
+    visible: true
+});
+layer.add(allArrows)
+
+// Create new group for future nodes
 const allNodes = new Konva.Group({
     x: 0,
     y: 0,
@@ -33,6 +41,8 @@ const allNodes = new Konva.Group({
 });
 // allNodes.add(rect1, rect2);
 layer.add(allNodes);
+
+
 
 // Draw layer
 layer.draw();
@@ -84,10 +94,27 @@ stage.on('click tap', e => {
 // Delete selected nodes
 document.addEventListener('keydown', e => {
     if (e.key === "Delete") {
+
+        // IDs of deleted items
+        const ids = []
+
+        // Deletes nodes in transform
         tr.nodes().forEach(function (node) {
             node.destroy();
+            ids.push(node._id);
         })
         tr.nodes([]);
+
+        // Delete arrows adjacent to deleted nodes
+        const arrows = layer.getChildren(node => node.getClassName() === "Arrow")
+        for (let arrow of arrows) {
+            start = arrow.getAttr('start');
+            end = arrow.getAttr('end');
+            if (ids.indexOf(start._id) >= 0 || ids.indexOf(end._id) >= 0) {
+                arrow.destroy();
+            }
+        }
         layer.draw();
     }
+
 })

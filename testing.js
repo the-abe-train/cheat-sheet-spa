@@ -10,8 +10,8 @@ let centreRect = new Konva.Rect({
 layer.add(centreRect).draw();
 
 const size = {
-    width: 200,
-    height: 100
+    width: 150,
+    height: 75
 }
 
 const groupPosition = {
@@ -46,16 +46,14 @@ const rect1 = new Konva.Rect({
     x: 0,
     y: 0,
     ...size,
-    fill: 'blue',
-    name: 'blue',
+    fill: 'white',
     stroke: 'black',
     cornerRadius: 5,
     shadowColor: 'black',
     shadowBlur: 10,
     shadowOffsetX: 10,
     shadowOffsetY: 10,
-    shadowOpacity: 0.2,
-    opacity: 0.5
+    shadowOpacity: 0.2
 })
 
 const group2 = new Konva.Group({
@@ -70,16 +68,14 @@ const rect2 = new Konva.Rect({
     x: 0,
     y: 0,
     ...size,
-    fill: 'green',
-    name: 'green',
+    fill: 'white',
     stroke: 'black',
     cornerRadius: 5,
     shadowColor: 'black',
     shadowBlur: 10,
     shadowOffsetX: 10,
     shadowOffsetY: 10,
-    shadowOpacity: 0.2,
-    opacity: 0.5
+    shadowOpacity: 0.2
 })
 
 // allNodes.add(rect1, rect2);

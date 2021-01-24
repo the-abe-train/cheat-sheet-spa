@@ -123,20 +123,12 @@ document.querySelector('#centre').addEventListener('click', (e) => {
         return outOfBounds
     }
 
-    function resize() {
-        allNodes.getChildren().forEach(node => {
-            node.size({ width: 200, height: 100 })
-            node.scale({ x: 1, y: 1 });
-        })
-    }
-
     // Reset basic canvas positions and vectors
     stage.scale({ x: 1, y: 1 })
     stage.position({ x: 0, y: 0 })
     allNodes.position({ x: 0, y: 0 })
 
-    // Initial resize and recentre
-    resize();
+    // Initial recentre
     recentre();
 
     // Zoom until all shapes within bounds
@@ -148,8 +140,9 @@ document.querySelector('#centre').addEventListener('click', (e) => {
     }
 
     // Redraw arrows
-    const arrows = layer.getChildren(node => node.getClassName() === "Arrow")
-    for (let arrow of arrows) {
+    // const arrows = allArrows.getChildren(node => node.getClassName() === "Arrow")
+
+    for (let arrow of allArrows.getChildren()) {
         arrow.update();
     }
 

@@ -9,6 +9,14 @@
     <!-- Konva -->
     <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
 
+    <!-- Paper CSS -->
+    <link rel="stylesheet" href="paper.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -16,17 +24,24 @@
 
 <body>
 
+
+
     <!-- Sidebar -->
     <div class="sidenav">
-        <h2>Variables</h2>
-        <button class="add-element" id="variables-button" data-target="variables-popup">Add variable</button>
-        <div class="vertical-menu" id="variables-menu"></div>
-        <hr>
-        <h2>Equations</h2>
-        <button class="add-element" id="equations-button" data-target="equations-popup">Add equation</button>
-        <div class="vertical-menu" id="equations-menu"></div>
-        <hr>
-        <button id="links-button">Add link</button>
+        <div class="sidenav-section">
+            <h2>Variables</h2>
+            <button class="add-element btn-small" id="variables-button" data-target="variables-popup">New</button>
+            <div class="vertical-menu" id="variables-menu"></div>
+        </div>
+        <div class="sidenav-section">
+            <h2>Equations</h2>
+            <button class="add-element btn-small" id="equations-button" data-target="equations-popup">New</button>
+            <div class="vertical-menu" id="equations-menu"></div>
+        </div>
+        <div class="sidenav-section">
+            <button class="btn-default" id="links-button">Add link</button>
+        </div>
+
     </div>
 
     <!-- Canvas element -->
@@ -40,13 +55,13 @@
 
     <!-- Buttons that show up over canvas -->
     <div id="view-controls">
-        <a id="centre" href="#">Center canvas</a>
-        <a id="zoomin" href="#">Zoom in</a>
-        <a id="zoomout" href="#">Zoom out</a>
+        <i id="centre" class="fas fa-compress-arrows-alt"></i>
+        <i id="zoomout" class="fas fa-search-minus"></i>
+        <i id="zoomin" class="fas fa-search-plus"></i>
     </div>
 
     <!-- Forms -->
-    <div class="form-popup" id="variables-popup">
+    <div class="form-popup card" id="variables-popup">
         <form class="form-container" id="variables-form" data-type="variable">
             <button class="close-button" type="reset">x</button>
             <div class="form-row">
@@ -75,7 +90,8 @@
             <label for="eqnsymbol"><b>Type out equation with symbols</b></label>
             <input type="text" id="eqnsymbol" placeholder="PV=nRT" name="symbol" required>
             <label for="vardesc"><b>Description</b></label>
-            <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons" name="desc"/>
+            <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons"
+                name="desc" />
             <button type="submit" class="btn">Create Variable</button>
         </form>
     </div>

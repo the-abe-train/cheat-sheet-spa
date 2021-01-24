@@ -17,8 +17,6 @@ document.querySelectorAll('.close-button').forEach(btn => {
     })
 })
 
-// Drag and drop form?
-
 // Submit form
 document.querySelectorAll('.form-container').forEach(form => {
     form.addEventListener('submit', function (e) {
@@ -55,7 +53,7 @@ function createElement(el) {
 
     const listId = `${el.type}s-menu`;
     const list = document.getElementById(listId);
-    const listItem = document.createElement('a');
+    const listItem = document.createElement('p');
     const listItemText = document.createTextNode(listLabel);
 
     listItem.appendChild(listItemText);
@@ -69,8 +67,8 @@ function createElement(el) {
 
     // Making the node on the canvas
     const size = {
-        width: 200,
-        height: 100
+        width: 150,
+        height: 75
     }
 
     const groupPosition = {
@@ -100,7 +98,8 @@ function createElement(el) {
         shadowBlur: 10,
         shadowOffsetX: 10,
         shadowOffsetY: 10,
-        shadowOpacity: 0.2
+        shadowOpacity: 0.2,
+        zIndex: 1
     })
 
     const text = new Konva.Text({
@@ -108,21 +107,14 @@ function createElement(el) {
         ...size,
         text: listLabel,
         fontSize: 18,
-        fontFamily: 'Calibri',
+        fontFamily: 'Patrick Hand SC',
         fill: '#555',
-        padding: 20,
+        // padding: 20,
         align: 'center',
         verticalAlign: 'middle',
+        zIndex: 2,
         transformsEnabled: 'none'  // need to fix these transforms
     })
-
-    // Add linking event to right clicking the node
-    // nodeGroup.addEventListener('contextmenu', function(ev) {
-    //     ev.preventDefault();
-    //     document.addEventListener('mousedown', e => {
-    //         console.log('dragging')
-    //     })
-    // });
 
     nodeGroup.add(rect, text);
     allNodes.add(nodeGroup);
