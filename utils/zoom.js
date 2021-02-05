@@ -1,5 +1,7 @@
+import {stage, layer, tr, allArrows, allNodes} from './canvasSetup'
+
 // Dynamic resize canvas when resizing window
-function fitStageIntoParentContainer() {
+export function fitZoom() {
 
     const pageHeight = window.innerHeight;
     const pageWidth = window.innerWidth;
@@ -13,11 +15,10 @@ function fitStageIntoParentContainer() {
     stage.draw();
 }
 
-fitStageIntoParentContainer()
-window.addEventListener('resize', fitStageIntoParentContainer);
+
 
 // Zoom function
-function zoom(direction, point, scaleBy = 1.2) {
+export function zoom(direction, point, scaleBy = 1.2) {
     const oldScale = stage.scaleX();
 
     const pointVector = {
@@ -38,15 +39,15 @@ function zoom(direction, point, scaleBy = 1.2) {
 }
 
 // Zoom with scroll wheel
-const scaleBy = 1.03;
-stage.on('wheel', (e) => {
+export const scrollZoom = e => {
     e.evt.preventDefault();
     const direction = e.evt.deltaY > 0 ? 'out' : 'in'
-    zoom(direction, stage.getPointerPosition(), scaleBy)
-})
+    zoom(direction, stage.getPointerPosition(), 1.03)
+}
+
 
 // Get centre of screen
-function stageCentre() {
+export function stageCentre() {
     // Get the relative centre of the stage
     return {
         x: stage.width() / 2,
@@ -55,7 +56,7 @@ function stageCentre() {
 }
 
 // Recentre screen
-document.querySelector('#centre').addEventListener('click', (e) => {
+export const recentreZoom = (e) => {
 
     function recentre() {
 
@@ -148,12 +149,4 @@ document.querySelector('#centre').addEventListener('click', (e) => {
 
     // Redraw layer
     layer.draw();
-})
-
-// Zoom buttons
-document.querySelector('#zoomin').addEventListener('click', e => {
-    zoom('in', stageCentre());
-})
-document.querySelector('#zoomout').addEventListener('click', e => {
-    zoom('out', stageCentre());
-})
+}

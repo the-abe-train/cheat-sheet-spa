@@ -1,5 +1,7 @@
+import {stage, layer, tr, allArrows, allNodes} from './canvasSetup'
+
 // Open form
-document.querySelectorAll('.add-element').forEach(btn => {
+export const openForm = btn => {
     btn.addEventListener('click', function (e) {
         const popupId = this.dataset.target;
         const popup = document.querySelector('#' + popupId)
@@ -7,18 +9,18 @@ document.querySelectorAll('.add-element').forEach(btn => {
         popup.querySelector('input').focus();
 
     })
-})
+}
 
 // Close form
-document.querySelectorAll('.close-button').forEach(btn => {
+export const closeForm = btn => {
     btn.addEventListener('click', function (e) {
         const popupId = this.parentElement.parentElement.id;
         document.querySelector('#' + popupId).style.display = 'none';
     })
-})
+}
 
 // Submit form
-document.querySelectorAll('.form-container').forEach(form => {
+export const newElement = form => {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         this.parentElement.style.display = 'none';
@@ -34,7 +36,7 @@ document.querySelectorAll('.form-container').forEach(form => {
         createElement(element);
         this.reset();
     })
-})
+}
 
 function activateItem(li) {
 

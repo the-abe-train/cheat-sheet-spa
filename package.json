@@ -1,0 +1,27 @@
+{
+  "name": "cheat-sheet-spa",
+  "version": "1.0.0",
+  "description": "First attempt at cheat sheet project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon index.html",
+    "snowpack": "snowpack dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-abe-train/cheat-sheet-spa.git"
+  },
+  "author": "The Abe Train",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-abe-train/cheat-sheet-spa/issues"
+  },
+  "homepage": "https://github.com/the-abe-train/cheat-sheet-spa#readme",
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "snowpack": "^3.0.11"
+  }
+}

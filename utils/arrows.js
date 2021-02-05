@@ -1,3 +1,5 @@
+import {stage, layer, tr, allArrows, allNodes} from './canvasSetup'
+
 let clicks = 0;
 let startNode, endNode;
 
@@ -20,17 +22,13 @@ function makeLink() {
     }
 }
 
-document.querySelector('#links-button').addEventListener('click', function(e) {
+export const newLink = function(e) {
     this.classList.add('disabled');
     tr.nodes([]);
     layer.draw();
     allNodes.children.forEach(nodeGroup => {
         nodeGroup.addEventListener('click tap', makeLink)
     })
-})
-
-function asDegrees(radians) {
-    return `${radians * (180 / Math.PI)} degrees`
 }
 
 function linkPoints(startNode, endNode) {
@@ -63,7 +61,7 @@ function linkPoints(startNode, endNode) {
     // H is the vector from the centre of one node group to the centre of the 
     // next, stopping at the edge (it's like H1ypotenous)
     // The size of H depends on the size of the nodes and the angles between them 
-    let H1x, H1y;
+    let H1x, H1y, H2x, H2y;
 
     if (theta < -Math.PI + phi) {
         H1x = -w1 / 2;

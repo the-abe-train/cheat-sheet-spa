@@ -1,120 +1,53 @@
-// Build default stage
-let stage = new Konva.Stage({
-    container: "konva-holder",
-    height: 100,
-    width: 100,
-    draggable: true
+import {stage, layer, tr, allArrows, allNodes} from './utils/canvasSetup'
+import {selectNode, deleteNode} from './utils/transforms.js'
+import {stageCentre, zoom, fitZoom, scrollZoom, recentreZoom} from './utils/zoom.js'
+import {openForm, closeForm, newElement} from './utils/forms.js'
+import {newLink} from './utils/arrows.js'
 
-});
 
-// Create layer and add layer to stage
-let layer = new Konva.Layer();
+
+// Add main layer to stage
 stage.add(layer);
 
-// Create empty transformer (selection group)
-const tr = new Konva.Transformer({
-    keepRatio: true,
-    enabledAnchors: [
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right',
-    ],
-    rotateEnabled: false
-});
-tr.nodes([]); // need a default in transformer, so empty array
+// Create empty transformer and add to layer
+tr.nodes([]);
 layer.add(tr);
 
-// Create new group for future arrows
-const allArrows = new Konva.Group({
-    x: 0,
-    y: 0,
-    visible: true
-});
+// Add group of all arrows to layer
 layer.add(allArrows)
 
-// Create new group for future nodes
-const allNodes = new Konva.Group({
-    x: 0,
-    y: 0,
-    visible: true
-});
+// Add gropu of all nodes to layer
 // allNodes.add(rect1, rect2);
 layer.add(allNodes);
-
-
 
 // Draw layer
 layer.draw();
 
-
+// Transforms
 // Set rule for selection shapes by clicking on them
-stage.on('click tap', e => {
-
-    // if click on empty area - remove all selections
-    if (e.target === stage) {
-        tr.nodes([]);
-        layer.draw();
-        return;
-    }
-
-    // Was a special key pressed during click?
-    const metaPressed = e.evt.shiftKey || e.evt.ctrlKey || e.evt.metaKey;
-
-    // Change target to group
-    const groupTarget = e.target.getParent();
-
-    // Did you click on an object already in the transformer?
-    const isSelected = tr.nodes().indexOf(groupTarget) >= 0;
-
-    if (!metaPressed && !isSelected) {
-        // if no key pressed and the node is not selected
-        // select just one
-        tr.nodes([groupTarget]);
-    } else if (metaPressed && isSelected) {
-        // if we pressed keys and node was selected
-        // we need to remove it from selection:
-        const nodes = tr.nodes().slice(); // use slice to have new copy of array
-        // remove node from array
-        nodes.splice(nodes.indexOf(groupTarget), 1);
-        tr.nodes(nodes);
-    } else if (metaPressed && !isSelected) {
-        // add the node into selection
-        const nodes = tr.nodes().concat([groupTarget]);
-        tr.nodes(nodes);
-    }
-
-    // Bring to front
-    tr.zIndex(1);
-
-    layer.draw();
-
-})
+stage.on('click tap', selectNode)
 
 // Delete selected nodes
-document.addEventListener('keydown', e => {
-    if (e.key === "Delete") {
+document.addEventListener('keydown', deleteNode)
 
-        // IDs of deleted items
-        const ids = []
+// Zooms
+fitZoom()
+window.addEventListener('resize', fitZoom);
+stage.on('wheel', scrollZoom);
+document.querySelector('#centre').addEventListener('click', recentreZoom)
 
-        // Deletes nodes in transform
-        tr.nodes().forEach(function (node) {
-            node.destroy();
-            ids.push(node._id);
-        })
-        tr.nodes([]);
-
-        // Delete arrows adjacent to deleted nodes
-        const arrows = layer.getChildren(node => node.getClassName() === "Arrow")
-        for (let arrow of arrows) {
-            start = arrow.getAttr('start');
-            end = arrow.getAttr('end');
-            if (ids.indexOf(start._id) >= 0 || ids.indexOf(end._id) >= 0) {
-                arrow.destroy();
-            }
-        }
-        layer.draw();
-    }
-
+// Zoom buttons
+document.querySelector('#zoomin').addEventListener('click', e => {
+    zoom('in', stageCentre());
 })
+document.querySelector('#zoomout').addEventListener('click', e => {
+    zoom('out', stageCentre());
+})
+
+// Forms
+document.querySelectorAll('.add-element').forEach(openForm)
+document.querySelectorAll('.close-button').forEach(closeForm)
+document.querySelectorAll('.form-container').forEach(newElement)
+
+// Arrows
+document.querySelector('#links-button').addEventListener('click', newLink)
