@@ -45,7 +45,7 @@ document.querySelector('#zoomout').addEventListener('click', e => {
 })
 
 // Forms
-document.querySelectorAll('.add-element').forEach(openForm)
+document.querySelectorAll('.open-form').forEach(openForm)
 document.querySelectorAll('.close-button').forEach(closeForm)
 document.querySelectorAll('.form-container').forEach(newElement)
 
