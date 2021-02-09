@@ -14,7 +14,7 @@
 
  a {
      text-decoration: none;
-     color: pink;
+     color: black;
  }
 
  i {
@@ -94,11 +94,7 @@
      right: 0;
  }
 
- #view-controls {
-     position: fixed;
-     bottom: 0;
-     right: 0;
- }
+
 
  /* Forms */
 
@@ -161,4 +157,21 @@
      display: flex;
      align-items: center;
      justify-content: center;
+ }
+
+ /* Zoom icons */
+ #view-controls {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    right: 0;
+}
+
+ .icon-span {
+    transform: scale(1.5);
+    padding-right: 1em;
+    padding-bottom: 0.5em;
+    
+    /* position: fixed; */
  }

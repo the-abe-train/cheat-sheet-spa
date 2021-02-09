@@ -1,4 +1,4 @@
-import {stage, layer, tr, allArrows, allNodes} from './utils/canvasSetup'
+import {stage, layer, tr, allArrows, allNodes} from './utils/canvasSetup.js'
 import {selectNode, deleteNode} from './utils/transforms.js'
 import {stageCentre, zoom, fitZoom, scrollZoom, recentreZoom} from './utils/zoom.js'
 import {openForm, closeForm, newElement} from './utils/forms.js'

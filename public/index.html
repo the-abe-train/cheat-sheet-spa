@@ -9,6 +9,9 @@
     <!-- Konva -->
     <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
 
+    <!-- Userbase -->
+    <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
     <!-- Paper CSS -->
     <link rel="stylesheet" href="paper.css">
 
@@ -54,11 +57,11 @@
     </div>
 
     <!-- Buttons that show up over canvas -->
-    <div id="view-controls">
-        <i id="centre" class="fas fa-compress-arrows-alt"></i>
-        <i id="zoomout" class="fas fa-search-minus"></i>
-        <i id="zoomin" class="fas fa-search-plus"></i>
-    </div>
+    <container id="view-controls">
+        <span class="icon-span"><i id="centre" class="fas fa-compress-arrows-alt"></i></span>
+        <span class="icon-span"><i id="zoomout" class="fas fa-search-minus"></i></span>
+        <span class="icon-span"><i id="zoomin" class="fas fa-search-plus"></i></span>
+    </container>
 
     <!-- Forms -->
     <div class="form-popup card" id="variables-popup">
@@ -97,7 +100,7 @@
     </div>
 
     <!-- My code -->
-    <script type="module" src="index.js"></script>
+    <script type="module" src="/dist/index.js"></script>
     <!-- <script src="zoom.js"></script> -->
     <!-- <script src="forms.js"></script> -->
     <!-- <script src="arrows.js"></script> -->
