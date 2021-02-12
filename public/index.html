@@ -13,7 +13,7 @@
   <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 
   <!-- Paper CSS -->
-  <link rel="stylesheet" href="paper.css">
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -33,43 +33,50 @@
   <div class="sidenav">
     <div class="sidenav-section">
       <h2>Variables</h2>
-      <button class="btn-small open-form" id="variables-button" data-target="variables-popup">New</button>
+      <button class="btn-small open-form" id="variable-btn"
+        data-target="variables-popup">&nbsp;&nbsp;New&nbsp;&nbsp;</button>
       <div class="vertical-menu" id="variables-menu"></div>
     </div>
     <div class="sidenav-section">
       <h2>Equations</h2>
-      <button class="btn-small open-form" id="equations-button" data-target="equations-popup">New</button>
+      <button class="btn-small open-form" id="equations-btn"
+        data-target="equations-popup">&nbsp;&nbsp;New&nbsp;&nbsp;</button>
       <div class="vertical-menu" id="equations-menu"></div>
     </div>
     <div class="sidenav-section">
-      <button class="btn-default" id="links-button">Add link</button>
+      <button class="btn-default" id="links-btn">Add link</button>
     </div>
-
+  
   </div>
-
+     
   <!-- Canvas element -->
   <div id="konva-holder" class="main"></div>
 
-  <!-- Buttons that show up over canvas -->
+  <!-- Admin --> 
   <div class="btn-group" id="admin">
-    <button class="btn-small open-form" data-target="login-popup">Log-in</button>
-    <button class="btn-small open-form" data-target="signup-popup">Sign-up</button>
-    <button class="btn-small">Save to PDF</button>
+    <button id="login-btn" class="btn-small open-form" data-target="login-popup">Log-in</button>
+    <button id="signup-btn" class="btn-small open-form" data-target="signup-popup">Sign-up</button>
+    <div id="show-user">
+      <span class="icon-span"><i id="user-icon" class="fas fa-user"></i></span>
+      <div id="show-username"></div>
+    </div>
+    <button id="logout-btn" class="btn-small">Logout</button>
+    <!-- <button class="btn-small">Save to PDF</button> -->
   </div>
-
-  <!-- Buttons that show up over canvas -->
+ 
+  <!-- Zoom  -->
   <container id="view-controls">
-    <span class="icon-span"><i id="centre" class="fas fa-compress-arrows-alt"></i></span>
-    <span class="icon-span"><i id="zoomout" class="fas fa-search-minus"></i></span>
-    <span class="icon-span"><i id="zoomin" class="fas fa-search-plus"></i></span>
+    <span class="icon-span zoom-span"><i id="centre" class="fas fa-compress-arrows-alt"></i></span>
+    <span class="icon-span zoom-span"><i id="zoomout" class="fas fa-search-minus"></i></span>
+    <span class="icon-span zoom-span"><i id="zoomin" class="fas fa-search-plus"></i></span>
   </container>
 
   <!-- Forms -->
 
   <!-- Variables -->
-  <div class="form-popup card" id="variables-popup">
+  <div class="form-popup" id="variables-popup">
     <form class="form-container" id="variables-form" data-type="variable">
-      <button class="close-button" type="reset">x</button>
+      <button class="close-btn" type="reset">x</button>
       <div class="form-row">
         <div class="form-col">
           <label for="varname"><b>Variable name</b></label>
@@ -89,31 +96,51 @@
   </div>
 
   <!-- Equations -->
-  <div class="form-popup card" id="equations-popup">
+  <div class="form-popup" id="equations-popup">
     <form class="form-container" id="equations-form" data-type="equation">
-      <button class="close-button" type="reset">x</button>
+      <button class="close-btn" type="reset">x</button>
       <label for="eqnname"><b>Equation name</b></label>
       <input type="text" id="eqnname" placeholder="Ideal Gas Law" name="name" required>
       <label for="eqnsymbol"><b>Type out equation with symbols</b></label>
       <input type="text" id="eqnsymbol" placeholder="PV=nRT" name="symbol" required>
-      <label for="vardesc"><b>Description</b></label>
-      <input type="text" id="vardesc" placeholder="Equation to estimate the state of a gas in ideal considitons"
+      <label for="eqndesc"><b>Description</b></label>
+      <input type="text" id="eqndesc" placeholder="Equation to estimate the state of a gas in ideal considitons"
         name="desc" />
       <button type="submit" class="btn">Create Variable</button>
     </form>
   </div>
 
-  <!-- Log-in -->
-  <div class="form-popup card" id="login-popup">
-    <form class="form-container" id="auth-form" data-type="auth">
-      <button class="close-button" type="reset">x</button>
+  <!-- Sign-up -->
+  <div class="form-popup" id="signup-popup">
+    <form class="form-container" id="signup-form" data-type="auth">
+      <button class="close-btn" type="reset">x</button>
       <div class="form-group">
         <label for="username"><b>Username</b></label>
-        <input type="username" id="username" name="username" required>
+        <input type="username" id="signup-username" name="username" required>
       </div>
       <div class="form-group">
         <label for="password"><b>Password</b></label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="signup-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password"><b>Confirm Password</b></label>
+        <input type="password" id="signup-confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit" class="btn">Log In</button>
+    </form>
+  </div>
+
+  <!-- Log-in -->
+  <div class="form-popup" id="login-popup">
+    <form class="form-container" id="login-form" data-type="auth">
+      <button class="close-btn" type="reset">x</button>
+      <div class="form-group">
+        <label for="username"><b>Username</b></label>
+        <input type="username" id="login-username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="login-password" name="password" required>
       </div>
       <button type="submit" class="btn">Log In</button>
     </form>

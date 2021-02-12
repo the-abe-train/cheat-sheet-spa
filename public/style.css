@@ -18,13 +18,17 @@
  }
 
  i {
-   cursor: pointer;
+   display: inline-block;
  }
 
  h2 {
    font-size: 2em;
    margin-top: 0.3em;
    margin-bottom: 0.2em;
+ }
+
+ button {
+   margin: 0.5em
  }
 
  /* The sidebar menu */
@@ -75,7 +79,7 @@
    background-color: #777;
  }
 
- #links-button {
+ #links-btn {
    margin-bottom: 0.5em;
  }
 
@@ -86,10 +90,21 @@
    /* Same as the width of the sidebar (- 10px) */
  }
 
+ /* Admin section */
+
  #admin {
    position: fixed;
    top: 0;
    right: 0;
+   padding: 0.5em;
+   display: flex;
+   align-items: center;
+ }
+
+ #show-user {
+   display: flex;
+   align-items: center;
+   text-align: center;
    padding: 0.5em;
  }
 
@@ -144,10 +159,10 @@
 
  /* Cancel button */
 
- .close-button {
+ .close-btn {
    position: absolute;
-   top: -.5em;
-   right: -.5em;
+   top: -1em;
+   right: -1em;
    width: 1em;
    height: 1em;
    border-radius: 50%;
@@ -169,7 +184,10 @@
 
  .icon-span {
    transform: scale(1.5);
-   padding-right: 1em;
-   padding-bottom: 0.5em;
-   /* position: fixed; */
+   display: flex;
+   padding: 0.75em;
+ }
+
+ .zoom-span {
+   cursor: pointer;
  }

@@ -1,10 +1,12 @@
-import {stage, layer, tr, allArrows, allNodes} from './utils/canvasSetup.js'
-import {selectNode, deleteNode} from './utils/transforms.js'
-import {stageCentre, zoom, fitZoom, scrollZoom, recentreZoom} from './utils/zoom.js'
-import {openForm, closeForm, newElement} from './utils/forms.js'
-import {newLink} from './utils/arrows.js'
+import { stage, layer, tr, allArrows, allNodes } from './utils/canvasSetup.js'
+import { selectNode, deleteNode } from './utils/transforms.js'
+import { stageCentre, zoom, fitZoom, scrollZoom, recentreZoom } from './utils/zoom.js'
+import { openForm, closeForm, submitForm } from './utils/forms.js'
+import { newLink } from './utils/arrows.js'
+import { initUserbase, handleLogout } from './utils/auth'
 
-
+// Start up connection to userbase
+initUserbase();
 
 // Add main layer to stage
 stage.add(layer);
@@ -38,16 +40,19 @@ document.querySelector('#centre').addEventListener('click', recentreZoom)
 
 // Zoom buttons
 document.querySelector('#zoomin').addEventListener('click', e => {
-    zoom('in', stageCentre());
+  zoom('in', stageCentre());
 })
 document.querySelector('#zoomout').addEventListener('click', e => {
-    zoom('out', stageCentre());
+  zoom('out', stageCentre());
 })
 
 // Forms
 document.querySelectorAll('.open-form').forEach(openForm)
-document.querySelectorAll('.close-button').forEach(closeForm)
-document.querySelectorAll('.form-container').forEach(newElement)
+document.querySelectorAll('.close-btn').forEach(closeForm)
+document.querySelectorAll('.form-container').forEach(submitForm)
+
+// Logout button
+document.querySelector('#logout-btn').addEventListener('click', handleLogout)
 
 // Arrows
-document.querySelector('#links-button').addEventListener('click', newLink)
+document.querySelector('#links-btn').addEventListener('click', newLink)

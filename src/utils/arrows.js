@@ -14,7 +14,7 @@ function makeLink() {
             nodeGroup.removeEventListener('click tap', makeLink)
         })
         clicks = 0;
-        document.querySelector('#links-button').classList.remove('disabled');
+        document.querySelector('#links-btn').classList.remove('disabled');
 
         // Draw arrow
         endNode = this;
