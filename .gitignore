@@ -1,5 +1,7 @@
 ~
 credentials.json
+snowpack.crt
+snowpack.key
 
 # Logs
 logs
