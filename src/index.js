@@ -1,7 +1,7 @@
 import { stage, layer, tr, allArrows, allNodes } from './utils/canvasSetup.js'
 import { selectNode, deleteNode } from './utils/transforms.js'
 import { stageCentre, zoom, fitZoom, scrollZoom, recentreZoom } from './utils/zoom.js'
-import { openForm, closeForm, submitForm } from './utils/forms.js'
+import { openForm, cancelForm, submitForm } from './utils/forms.js'
 import { newLink } from './utils/arrows.js'
 import { initUserbase, handleLogout } from './utils/auth'
 
@@ -48,7 +48,7 @@ document.querySelector('#zoomout').addEventListener('click', e => {
 
 // Forms
 document.querySelectorAll('.open-form').forEach(openForm)
-document.querySelectorAll('.close-btn').forEach(closeForm)
+document.querySelectorAll('.close-btn').forEach(cancelForm)
 document.querySelectorAll('.form-container').forEach(submitForm)
 
 // Logout button
@@ -56,3 +56,6 @@ document.querySelector('#logout-btn').addEventListener('click', handleLogout)
 
 // Arrows
 document.querySelector('#links-btn').addEventListener('click', newLink)
+
+// Testing
+console.log(JSON.parse(stage.toJSON()))

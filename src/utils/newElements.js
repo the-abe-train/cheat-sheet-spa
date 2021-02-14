@@ -98,4 +98,7 @@ export function createElement(form) {
   allNodes.add(nodeGroup);
   layer.draw();
 
+  // Show that form submission is valid
+  return true;
+
 }

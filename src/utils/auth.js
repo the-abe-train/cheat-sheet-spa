@@ -17,33 +17,51 @@ function displayLoggedOut() {
 export function initUserbase() {
   displayLoggedOut();
   userbase.init({ appId: '6b91f467-e4bd-43a8-a519-28947a7dbcfb' })
-  .then((session) => {
-    if (session.user)  {
-      displayLoggedIn(session.user.username);
-    } else {
-      displayLoggedOut()
+    .then((session) => {
+      if (session.user) {
+        displayLoggedIn(session.user.username);
+      } else {
+        displayLoggedOut()
+      }
+    })
+    .catch(() => console.log("Could not find user database"))
+}
+
+export async function handleLogin(form) {
+
+  const username = form.username.value;
+  const password = form.password.value;
+  return new Promise(async (res, rej) => {
+    try {
+      const user = await userbase.signIn({ username, password, rememberMe: 'local' });
+      displayLoggedIn(user.username);
+      res();
+    } catch (e) {
+      res(e.message);
     }
   })
-  .catch(() => console.log("Could not find user database"))
 }
 
-export function handleLogin(form) {
-  const username = form.username.value
-  const password = form.password.value
-  userbase.signIn({ username, password, rememberMe: 'local' })
-    .then((user) => displayLoggedIn(user.username))
-    .catch((e) => form.password.setCustomValidity(e.toString()))
-}
 
-function handleSignUp(e) {
-  e.preventDefault()
+export async function handleSignup(form) {
 
-  const username = document.getElementById('signup-username').value
-  const password = document.getElementById('signup-password').value
+  const username = form.username.value;
+  const password = form.password.value;
+  const confirmPassword = form['confirm-password'].value;
 
-  userbase.signUp({ username, password, rememberMe: 'local' })
-    .then((user) => showTodos(user.username))
-    .catch((e) => document.getElementById('signup-error').innerHTML = e)
+  return new Promise(async (res, rej) => {
+    if (password !== confirmPassword) {
+      res("Password and confirm password don't match.");
+      return
+    }
+    try {
+      const user = await userbase.signUp({ username, password, rememberMe: 'local' });
+      displayLoggedIn(user.username);
+      res();
+    } catch (e) {
+      res(e.message);
+    }
+  })
 }
 
 export function handleLogout() {

@@ -1,5 +1,19 @@
 import { createElement } from './newElements'
-import { handleLogin } from './auth.js'
+import { handleLogin, handleSignup } from './auth.js'
+
+function resetFormErrors() {
+  document.querySelectorAll('.auth-error').forEach(node => node.remove());
+}
+
+function resetForm(form) {
+  resetFormErrors();
+  form.reset();
+}
+
+function closeForm(form) {
+  resetForm(form);
+  form.parentElement.style.display = 'none';
+}
 
 // Open form
 export const openForm = btn => {
@@ -12,23 +26,42 @@ export const openForm = btn => {
 }
 
 // Close form
-export const closeForm = btn => {
+export const cancelForm = btn => {
   btn.addEventListener('click', function (e) {
-    const popupId = this.parentElement.parentElement.id;
-    document.querySelector('#' + popupId).style.display = 'none';
+    closeForm(this.parentElement);
   })
 }
 
+
 // Submit form
 export const submitForm = form => {
-  form.addEventListener('submit', function (e) {
+
+  form.addEventListener('submit', async function (e) {
+
+    // resetForm();
     e.preventDefault();
-    this.parentElement.style.display = 'none';
+
+    const formElements = this.elements;
+    const submitBtn = formElements[formElements.length - 1];
+    submitBtn.classList.add('disabled');
+
+    let error = false;
     if (this.id === 'variables-form' || this.id === 'equations-form') {
       createElement(form);
     } else if (this.id == 'login-form') {
-      handleLogin(form);
+      error = await handleLogin(form);
+    } else if (this.id == 'signup-form') {
+      error = await handleSignup(form);
     }
-    this.reset();
+    submitBtn.classList.remove('disabled');
+    if (error) {
+      resetFormErrors()
+      const p = document.createElement('p');
+      p.append(document.createTextNode(error));
+      p.classList.add('auth-error');
+      submitBtn.before(p);
+    } else {
+      closeForm(this);
+    }
   })
 }
