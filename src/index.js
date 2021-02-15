@@ -3,10 +3,7 @@ import { selectNode, deleteNode } from './utils/transforms.js'
 import { stageCentre, zoom, fitZoom, scrollZoom, recentreZoom } from './utils/zoom.js'
 import { openForm, cancelForm, submitForm } from './utils/forms.js'
 import { newLink } from './utils/arrows.js'
-import { initUserbase, handleLogout } from './utils/auth'
-
-// Start up connection to userbase
-initUserbase();
+import { initUserbase, handleLogout, saveCanvas } from './utils/auth'
 
 // Add main layer to stage
 stage.add(layer);
@@ -46,16 +43,19 @@ document.querySelector('#zoomout').addEventListener('click', e => {
   zoom('out', stageCentre());
 })
 
+// Arrows
+document.querySelector('#links-btn').addEventListener('click', newLink);
+
+// Start up connection to userbase
+initUserbase();
+
 // Forms
-document.querySelectorAll('.open-form').forEach(openForm)
-document.querySelectorAll('.close-btn').forEach(cancelForm)
-document.querySelectorAll('.form-container').forEach(submitForm)
+document.querySelectorAll('.open-form').forEach(openForm);
+document.querySelectorAll('.close-btn').forEach(cancelForm);
+document.querySelectorAll('.form-container').forEach(submitForm);
 
 // Logout button
-document.querySelector('#logout-btn').addEventListener('click', handleLogout)
+document.querySelector('#logout-btn').addEventListener('click', handleLogout);
 
-// Arrows
-document.querySelector('#links-btn').addEventListener('click', newLink)
-
-// Testing
-console.log(JSON.parse(stage.toJSON()))
+// Saving
+document.querySelector('#save-btn').addEventListener('click', saveCanvas);
