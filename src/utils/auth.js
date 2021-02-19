@@ -1,4 +1,4 @@
-import { stage, layer, tr, allArrows, allNodes } from './canvasSetup.js'
+import { stage, layer } from './canvasSetup.js'
 
 function displayLoggedIn(username) {
   document.querySelector('#show-username').innerHTML = username;
@@ -60,12 +60,12 @@ export async function handleSignup(form) {
   return new Promise(async (res, rej) => {
     if (password !== confirmPassword) {
       res("Password and confirm password don't match.");
-
       return
     }
     try {
       const user = await userbase.signUp({ username, password, rememberMe: 'local' });
       displayLoggedIn(user.username);
+      loadCanvas(true);
       res();
     } catch (e) {
       res(e.message);
@@ -79,46 +79,73 @@ export function handleLogout() {
     .catch(() => console.log("Logout error"))
 }
 
-export async function loadCanvas() {
-
-  // Remove existing groups from layer
-  layer.draw();
-
+export async function loadCanvas(newUser=false) {
 
   const databaseName = 'cheatsheet';
-  const changeHandler = (items) => {
-    if (items.length > 0) {
-      // layer.destroyChildren();
-      console.log(layer);
-      const nodes = items.map(item => {
-        return Konva.Node.create(item.item);
-      });
-      // items.forEach(item => layer.add(item.item))
-      console.log(nodes);
-      layer.add(...nodes);
+  let changeHandler;
+  if (newUser) {
+    changeHandler = async items => {
+      console.log(items);
+      const databaseName = 'cheatsheet';
+      await userbase.insertItem({ databaseName, item: [], itemId: 'nodes' })
+      await userbase.insertItem({ databaseName, item: [], itemId: 'arrows' })
+      // await userbase.insertItem({ databaseName, item: [], itemId: 'tr'  })
+      // layer.draw();
     }
-    layer.draw();
+  } else {
+    changeHandler = (items) => {
+      items.forEach(node => {
+        const newNode = Konva.Node.create(node);
+        layer.add(newNode)
+      });
+      layer.draw();
+    }
   }
 
   await userbase.openDatabase({ databaseName, changeHandler });
 }
 
 export async function saveCanvas() {
-  const canvasJson = JSON.parse(stage.toJSON());
-  console.log(canvasJson);
-  canvasJson.children[0].children.forEach(async group => {
-    const databaseName = 'cheatsheet';
-    const item = group;
-    const itemId = group.attrs.name;
-    await userbase.insertItem({ databaseName, item, itemId })
-      .then(console.log(`Inserted ${itemId}`))
-      .catch(async e => {
-        if (e.name === 'ItemAlreadyExists') {
-          await userbase.updateItem({ databaseName, item, itemId })
-            .then(console.log(`Updated ${itemId}`))
-        }
-      })
-  })
+  // const canvasJson = JSON.parse(stage.toJSON());
+  const groups = ['tr', 'nodes', 'arrows'];
+
+  const items = {
+    tr: layer.children.filter(child => child.attrs.name === 'transformer')[0],
+    nodes: layer.children.filter(child => child.attrs.name === 'nodes')[0],
+    arrows: layer.children.filter(child => child.attrs.name === 'arrows')[0]
+  }
+
+  const nodes = layer.children.filter(child => {
+    return child.attrs.name === 'nodes'
+  })[0].children
+
+  const nodesJsons = nodes.map(node => node.toJSON());
+
+  console.log(nodesJsons);
+
+  const databaseName = 'cheatsheet';
+  const item = nodesJsons;
+  const itemId = 'nodes';
+  await userbase.updateItem({ databaseName, item, itemId })
+
+
+
+
+
+  // canvasJson.children[0].children.forEach(async group => {
+  //   const databaseName = 'cheatsheet';
+  //   const item = group;
+  //   console.log(item)
+  //   const itemId = group.attrs.name;
+  //   await userbase.insertItem({ databaseName, item, itemId })
+  //     .then(console.log(`Inserted ${itemId}`))
+  //     .catch(async e => {
+  //       if (e.name === 'ItemAlreadyExists') {
+  //         await userbase.updateItem({ databaseName, item, itemId })
+  //           .then(console.log(`Updated ${itemId}`))
+  //       }
+  //     })
+  // })
 
 
 
