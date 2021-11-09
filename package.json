@@ -4,8 +4,6 @@
   "description": "First attempt at cheat sheet project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "nodemon public/index.html",
     "snowpack": "snowpack dev"
   },
   "repository": {
@@ -18,9 +16,7 @@
     "url": "https://github.com/the-abe-train/cheat-sheet-spa/issues"
   },
   "homepage": "https://github.com/the-abe-train/cheat-sheet-spa#readme",
-  "dependencies": {
-    "nodemon": "^2.0.7"
-  },
+  "dependencies": {},
   "devDependencies": {
     "snowpack": "^3.0.11"
   }
