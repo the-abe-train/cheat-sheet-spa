@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notework</title>
+
+  <!-- Konva -->
+  <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
+
+  <!-- Userbase -->
+  <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+  <!-- Paper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+  <!-- Sidebar -->
+  <div class="sidenav">
+    <div class="sidenav-section">
+      <h2>Variables</h2>
+      <button class="btn-small open-form" id="variable-btn"
+        data-target="variables-popup">&nbsp;&nbsp;New&nbsp;&nbsp;</button>
+      <div class="vertical-menu" id="variables-menu"></div>
+    </div>
+    <div class="sidenav-section">
+      <h2>Equations</h2>
+      <button class="btn-small open-form" id="equations-btn"
+        data-target="equations-popup">&nbsp;&nbsp;New&nbsp;&nbsp;</button>
+      <div class="vertical-menu" id="equations-menu"></div>
+    </div>
+    <div class="sidenav-section">
+      <button class="btn-default" id="links-btn">Add link</button>
+    </div>
+  
+  </div>
+     
+  <!-- Canvas element -->
+  <div id="container" class="main"></div>
+
+  <!-- Admin --> 
+  <div class="btn-group" id="admin">
+    <button id="login-btn" class="btn-small open-form" data-target="login-popup">Log-in</button>
+    <button id="signup-btn" class="btn-small open-form" data-target="signup-popup">Sign-up</button>
+    <div id="show-user">
+      <span class="icon-span"><i id="user-icon" class="fas fa-user"></i></span>
+      <div id="show-username"></div>
+    </div>
+    <button id="logout-btn" class="btn-small">Logout</button>
+    <button id="save-btn" class="btn-small">Save</button>
+    <button id="load-btn" class="btn-small">Load</button>
+  </div>
+ 
+  <!-- Zoom  -->
+  <container id="view-controls">
+    <span class="icon-span zoom-span"><i id="centre" class="fas fa-compress-arrows-alt"></i></span>
+    <span class="icon-span zoom-span"><i id="zoomout" class="fas fa-search-minus"></i></span>
+    <span class="icon-span zoom-span"><i id="zoomin" class="fas fa-search-plus"></i></span>
+  </container>
+
+  <!-- Forms -->
+
+  <!-- Variables -->
+  <div class="form-popup" id="variables-popup">
+    <form class="form-container" id="variables-form" data-type="variable">
+      <button class="close-btn" type="reset">x</button>
+      <div class="form-row">
+        <div class="form-col">
+          <label for="varname"><b>Variable name</b></label>
+          <input type="text" id="varname" placeholder="Volume" name="name" required>
+        </div>
+        <div class="form-col">
+          <label for="varsymbol"><b>Symbol</b></label>
+          <input type="text" id="varsymbol" placeholder="V" name="symbol" required>
+        </div>
+      </div>
+      <div class="form-col">
+        <label for="vardesc"><b>Description</b></label>
+        <input type="text" id="vardesc" placeholder="The amount of space a substance takes up" name="desc">
+      </div>
+      <button type="submit" class="btn">Create Variable</button>
+    </form>
+  </div>
+
+  <!-- Equations -->
+  <div class="form-popup" id="equations-popup">
+    <form class="form-container" id="equations-form" data-type="equation">
+      <button class="close-btn" type="reset">x</button>
+      <label for="eqnname"><b>Equation name</b></label>
+      <input type="text" id="eqnname" placeholder="Ideal Gas Law" name="name" required>
+      <label for="eqnsymbol"><b>Type out equation with symbols</b></label>
+      <input type="text" id="eqnsymbol" placeholder="PV=nRT" name="symbol" required>
+      <label for="eqndesc"><b>Description</b></label>
+      <input type="text" id="eqndesc" placeholder="Equation to estimate the state of a gas in ideal considitons"
+        name="desc" />
+      <button type="submit" class="btn">Create Variable</button>
+    </form>
+  </div>
+
+  <!-- Sign-up -->
+  <div class="form-popup" id="signup-popup">
+    <form class="form-container" id="signup-form" data-type="auth">
+      <button class="close-btn" type="reset">x</button>
+      <div class="form-group">
+        <label for="username"><b>Username</b></label>
+        <input type="username" id="signup-username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="signup-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password"><b>Confirm Password</b></label>
+        <input type="password" id="signup-confirm-password" name="confirm-password" required>
+      </div>
+      <button type="submit" class="btn">Sign up</button>
+    </form>
+  </div>
+
+  <!-- Log-in -->
+  <div class="form-popup" id="login-popup">
+    <form class="form-container" id="login-form" data-type="auth">
+      <button class="close-btn" type="reset">x</button>
+      <div class="form-group">
+        <label for="username"><b>Username</b></label>
+        <input type="username" id="login-username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="login-password" name="password" required>
+      </div>
+      <button type="submit" class="btn">Log In</button>
+      <!-- <div class="loader"></div>  -->
+    </form>
+  </div>
+
+  <!-- Userbase -->
+  <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+
+  <!-- My code -->
+  <script type="module" src="/dist/index.js"></script>
+
+</body>
+
+</html>

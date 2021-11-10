@@ -4,7 +4,8 @@
   "description": "First attempt at cheat sheet project",
   "main": "index.js",
   "scripts": {
-    "snowpack": "snowpack dev"
+    "dev": "snowpack dev",
+    "build": "snowpack build"
   },
   "repository": {
     "type": "git",

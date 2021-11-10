@@ -1,0 +1,230 @@
+ /* CSS Reset */
+
+ /* 
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ } */
+
+ /* Defaults */
+
+ a {
+   text-decoration: none;
+   color: black;
+ }
+
+ i {
+   display: inline-block;
+ }
+
+ h2 {
+   font-size: 2em;
+   margin-top: 0.3em;
+   margin-bottom: 0.2em;
+ }
+
+ button {
+   margin: 0.5em
+ }
+
+ /* The sidebar menu */
+
+ .sidenav {
+   height: 100%;
+   /* Full-height: remove this if you want "auto" height */
+   width: 170px;
+   /* Set the width of the sidebar */
+   position: fixed;
+   /* Fixed Sidebar (stay in place on scroll) */
+   z-index: 1;
+   /* Stay on top */
+   top: 0;
+   /* Stay at the top */
+   left: 0;
+   background-color: #dedede;
+   overflow-x: hidden;
+   /* Disable horizontal scroll */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   justify-content: space-between;
+ }
+
+ .vertical-menu {
+   width: 7.5rem;
+   height: 10em;
+   overflow-y: auto;
+   border: 1px solid;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .vertical-menu p {
+   margin: 0;
+   padding-top: 0.25em;
+   padding-bottom: 0.25em;
+   display: inline-block;
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+ .vertical-menu p.active {
+   font-weight: bold;
+   color: #fff;
+   background-color: #777;
+ }
+
+ #links-btn {
+   margin-bottom: 0.5em;
+ }
+
+ /* Style page content */
+
+ .main {
+   margin-left: 160px;
+   /* Same as the width of the sidebar (- 10px) */
+ }
+
+ /* Admin section */
+
+ #admin {
+   position: fixed;
+   top: 0;
+   right: 0;
+   padding: 0.5em;
+   display: flex;
+   align-items: center;
+ }
+
+ #show-user {
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding: 0.5em;
+ }
+
+ /* Forms */
+
+ /* The popup form - hidden by default */
+
+ .form-popup {
+   display: none;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 9;
+   background: white;
+ }
+
+ /* Auth form submission */
+
+ .auth-error {
+   color: red;
+ }
+
+ .loader {
+   border: 8px solid #f3f3f3;
+   border-radius: 50%;
+   border-top: 8px solid #3498db;
+   width: 60px;
+   height: 60px;
+   -webkit-animation: spin 2s linear infinite;
+   /* Safari */
+   animation: spin 2s linear infinite;
+ }
+
+ /* Safari */
+
+ @-webkit-keyframes spin {
+   0% {
+     -webkit-transform: rotate(0deg);
+   }
+   100% {
+     -webkit-transform: rotate(360deg);
+   }
+ }
+
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ /* Remove card hover effect */
+
+ .card:hover {
+   transform: 0;
+ }
+
+ /* Add styles to the form container */
+
+ .form-container {
+   max-width: 300px;
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid;
+ }
+
+ .form-row {
+   display: flex;
+   flex-direction: row;
+ }
+
+ .form-col {
+   display: flex;
+   flex-direction: column;
+   margin: 10px
+ }
+
+ /* Full-width input fields */
+
+ .form-container input[type=text] {
+   width: 100%;
+   padding: 5px;
+   margin: 5px 0 22px 0;
+ }
+
+ /* Cancel button */
+
+ .close-btn {
+   position: absolute;
+   top: -1em;
+   right: -1em;
+   width: 1em;
+   height: 1em;
+   border-radius: 50%;
+   padding: .5em;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ /* Zoom icons */
+
+ #view-controls {
+   position: fixed;
+   display: flex;
+   justify-content: space-around;
+   bottom: 0;
+   right: 0;
+ }
+
+ .icon-span {
+   transform: scale(1.5);
+   display: flex;
+   padding: 0.75em;
+ }
+
+ .zoom-span {
+   cursor: pointer;
+ }
